@@ -68,10 +68,10 @@ FROM Stu_Detail
 WHERE Rno = (SELECT Rno FROM Academic WHERE SPI = (SELECT MAX(SPI) FROM Academic));
 
 --6.Display details of students having more than 1 backlog.
-SELECT student_id, student_name, number_of_backlogs
-FROM students
-WHERE student_id IN (
-    SELECT student_id
-    FROM students
-    WHERE number_of_backlogs > 1
+SELECT *
+FROM Stu_Detail
+WHERE Rno IN (
+    SELECT Rno
+    FROM Academic a
+    WHERE Bklog > 1
 );
